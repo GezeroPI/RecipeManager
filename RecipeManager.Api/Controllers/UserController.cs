@@ -16,6 +16,7 @@ namespace RecipeManager.Api.Controllers
         {
             _service = service;
             _logger = logger;
+
         }
 
         [HttpGet]
