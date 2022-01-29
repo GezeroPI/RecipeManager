@@ -11,6 +11,8 @@ namespace RecipeManager.Domain.Interfaces
     {
         Task<int> SaveChangesAsync();
 
+        IUserRepository UserRepository();
+
         IAsyncRepository<T> AsyncRepository<T>() where T : BaseEntity;
     }
 }

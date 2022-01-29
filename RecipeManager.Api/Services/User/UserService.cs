@@ -6,30 +6,32 @@ namespace RecipeManager.Api.Services
 {
     public class UserService : BaseService
     {
+        private IUserRepository _userRepository { get; set; }
         public UserService(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
+            _userRepository = UnitOfWork.UserRepository();
         }
 
-        //public async Task AddNewAsync(AddUserRequest model)
-        //{
-        //    // You can you some mapping tools as such as AutoMapper
-        //    var user = new User(model.UserName
-        //        , model.FirstName
-        //        , model.LastName
-        //        , model.Email);
+        public async Task<AddUserResponse> AddNewAsync(AddUserRequest model)
+        {
+            // You can you some mapping tools as such as AutoMapper
+            var user = new User(model.UserName
+                , model.FirstName
+                , model.LastName
+                , model.Email
+                ,model.RoleId);
 
-        //    var repository = UnitOfWork.AsyncRepository();
-        //    await repository.AddAsync(user);
-        //    await UnitOfWork.SaveChangesAsync();
+            await _userRepository.AddAsync(user);
+            await UnitOfWork.SaveChangesAsync();
 
-        //    var response = new AddUserResponse()
-        //    {
-        //        Id = user.Id,
-        //        UserName = user.UserName
-        //    };
+            var response = new AddUserResponse()
+            {
+                Id = user.Id,
+                UserName = user.UserName
+            };
 
-        //    return response;
-        //}
+            return response;
+        }
 
 
         //public async Task<List> SearchAsync(GetUserRequest request)

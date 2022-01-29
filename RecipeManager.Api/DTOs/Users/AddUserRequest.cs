@@ -18,5 +18,7 @@ namespace RecipeManager.Api.DTOs.Users
 
         [StringLength(255)]
         public string Email { get; set; }
+
+        public long RoleId { get; set; }
     }
 }

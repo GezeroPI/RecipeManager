@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RecipeManager.Domain.Base
 {
-    public class BaseEntity
+    public abstract class BaseEntity
     {
         [Key]
         [Required]

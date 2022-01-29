@@ -5,7 +5,7 @@ namespace RecipeManager.Api.DTOs.Users
     public class UpdateUserRequest
     {
         [Required]
-        public int? Id { get; set; }
+        public long? Id { get; set; }
 
         [Required]
         [StringLength(50)]

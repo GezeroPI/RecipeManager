@@ -22,6 +22,7 @@ namespace RecipeManager.Infrastructure.Repositories
 
         public async Task<T> AddAsync(T entity)
         {
+            entity.CreatedDate = DateTime.Now;
             await _dbSet.AddAsync(entity);
             return entity;
         }

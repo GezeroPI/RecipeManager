@@ -22,15 +22,16 @@ namespace RecipeManager.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
+            
             return Ok();
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Add([FromBody] AddUserRequest request)
-        //{
-        //    var users = await _service.AddNewAsync(request);
-        //    return Ok(users);
-        //}
+        [HttpPost]
+        public async Task<IActionResult> Add([FromBody] AddUserRequest request)
+        {
+            var users = await _service.AddNewAsync(request);
+            return Ok(users);
+        }
 
     }
 }
