@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RecipeManager.Api.Services;
+using Microsoft.Extensions.Logging;
 
 namespace RecipeManager.Api.Controllers
 {
