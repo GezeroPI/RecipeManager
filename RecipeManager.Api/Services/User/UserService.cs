@@ -1,4 +1,4 @@
-﻿using RecipeManager.Api.DTOs.Users;
+﻿using RecipeManager.Api.DTOs;
 using RecipeManager.Domain.Entities;
 using RecipeManager.Domain.Interfaces;
 

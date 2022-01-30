@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RecipeManager.Api.DTOs.Users;
+using RecipeManager.Api.DTOs;
 using RecipeManager.Api.Services;
 
 namespace RecipeManager.Api.Controllers

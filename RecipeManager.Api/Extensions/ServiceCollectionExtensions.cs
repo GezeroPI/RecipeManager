@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation;
+using Microsoft.EntityFrameworkCore;
+using RecipeManager.Api.DTOs;
 using RecipeManager.Api.Services;
 using RecipeManager.Domain.Interfaces;
 using RecipeManager.Infrastructure;
@@ -37,6 +39,12 @@ namespace RecipeManager.Api.Extensions
             return services
                 .AddScoped<UserService>()
                 .AddScoped<RecipeService>();
+        }
+
+        public static IServiceCollection AddValidators(this IServiceCollection services
+           )
+        {
+            return services.AddTransient<IValidator<AddUserRequest>, AddUserRequestValidator>();
         }
     }
 }

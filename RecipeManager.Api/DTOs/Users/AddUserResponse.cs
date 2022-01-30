@@ -1,4 +1,4 @@
-﻿namespace RecipeManager.Api.DTOs.Users
+﻿namespace RecipeManager.Api.DTOs
 {
     public class AddUserResponse
     {

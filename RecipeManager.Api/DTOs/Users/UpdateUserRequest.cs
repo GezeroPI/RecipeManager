@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RecipeManager.Api.DTOs.Users
+namespace RecipeManager.Api.DTOs
 {
     public class UpdateUserRequest
     {
