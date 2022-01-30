@@ -13,6 +13,8 @@ namespace RecipeManager.Domain.Interfaces
 
         IUserRepository UserRepository();
 
+        IRecipeRepository RecipeRepository();
+
         IAsyncRepository<T> AsyncRepository<T>() where T : BaseEntity;
     }
 }

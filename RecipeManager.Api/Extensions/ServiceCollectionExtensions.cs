@@ -13,7 +13,9 @@ namespace RecipeManager.Api.Extensions
         {
             return services
                 .AddScoped(typeof(IAsyncRepository<>), typeof(RepositoryBase<>))
-                .AddScoped<IUserRepository, UserRepository>();
+                .AddScoped<IUserRepository, UserRepository>()
+                .AddScoped<IRecipeRepository, RecipeRepository>()
+                ;
         }
 
         public static IServiceCollection AddUnitOfWork(this IServiceCollection services)
@@ -33,7 +35,8 @@ namespace RecipeManager.Api.Extensions
            )
         {
             return services
-                .AddScoped<UserService>();
+                .AddScoped<UserService>()
+                .AddScoped<RecipeService>();
         }
     }
 }
