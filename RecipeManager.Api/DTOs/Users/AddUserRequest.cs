@@ -19,9 +19,10 @@ namespace RecipeManager.Api.DTOs
     {
         public AddUserRequestValidator()
         {
-            RuleFor(x => x.UserName).NotNull();
-            RuleFor(x => x.FirstName).Length(0, 100);
-            RuleFor(x => x.Email).EmailAddress();
+            RuleFor(x => x.UserName).NotNull().WithMessage(errorMessage: "Username is mandatory");
+            RuleFor(x => x.FirstName).NotNull().Length(3, 100).WithMessage(errorMessage: "Firstname must between 3-100 chars");
+            RuleFor(x => x.LastName).NotNull().Length(3, 100).WithMessage(errorMessage: "Lastname must between 3-100 chars");
+            RuleFor(x => x.Email).EmailAddress().WithMessage(errorMessage: "Email in not valid");
             RuleFor(x => x.RoleId).InclusiveBetween(1, 2).WithMessage(errorMessage:"Role id must be between 1 - 2");
         }
     }

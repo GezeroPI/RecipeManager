@@ -9,6 +9,7 @@ namespace RecipeManager.Api.DTOs
         {
             CreateMap<AddUserRequest, Domain.Entities.User>().ReverseMap();
             CreateMap<AddUserResponse, Domain.Entities.User>().ReverseMap();
+            CreateMap<UpdateUserRequest, Domain.Entities.User>().ReverseMap();
         }
     }
 
