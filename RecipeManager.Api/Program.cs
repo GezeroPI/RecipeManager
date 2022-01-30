@@ -21,6 +21,8 @@ try
     builder.Logging.ClearProviders();
     builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
     builder.Host.UseNLog();
+    builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
     builder.Services.AddDatabase(configuration)
                 .AddUnitOfWork()

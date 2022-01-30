@@ -1,5 +1,5 @@
-﻿using RecipeManager.Api.DTOs;
-using RecipeManager.Domain.Entities;
+﻿using AutoMapper;
+using RecipeManager.Api.DTOs;
 using RecipeManager.Domain.Interfaces;
 
 namespace RecipeManager.Api.Services
@@ -7,30 +7,22 @@ namespace RecipeManager.Api.Services
     public class UserService : BaseService
     {
         private IUserRepository _userRepository { get; set; }
-        public UserService(IUnitOfWork unitOfWork) : base(unitOfWork)
+        public readonly IMapper _mapper;
+
+        public UserService(IMapper mapper, IUnitOfWork unitOfWork) : base(unitOfWork)
         {
+            _mapper = mapper;
             _userRepository = UnitOfWork.UserRepository();
         }
 
         public async Task<AddUserResponse> AddNewAsync(AddUserRequest model)
         {
-            // You can you some mapping tools as such as AutoMapper
-            var user = new User(model.UserName
-                , model.FirstName
-                , model.LastName
-                , model.Email
-                ,model.RoleId);
-
+            var user = _mapper.Map<Domain.Entities.User>(model);
+            
             await _userRepository.AddAsync(user);
             await UnitOfWork.SaveChangesAsync();
 
-            var response = new AddUserResponse()
-            {
-                Id = user.Id,
-                UserName = user.UserName
-            };
-
-            return response;
+            return _mapper.Map<AddUserResponse>(user);
         }
 
 
