@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using RecipeManager.Api.DTOs;
 
-namespace RecipeManager.Api.Services.User
+namespace RecipeManager.Api.DTOs
 {
     public class UserProfile : Profile
     {
