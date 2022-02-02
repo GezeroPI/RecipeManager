@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RecipeManager.Api.DTOs;
+using RecipeManager.Api.DTOs.Users;
 using RecipeManager.Api.Services;
 
 namespace RecipeManager.Api.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("users")]
     public class UserController : ControllerBase
     {
@@ -19,8 +22,9 @@ namespace RecipeManager.Api.Controllers
 
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get()
+        [AllowAnonymous]
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login([FromBody] AuthenticateUser authenticateUser)
         {
             
             return Ok();
