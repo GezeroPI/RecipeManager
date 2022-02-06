@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RecipeManager.Domain.Entities.StockIngredient">
+    <Position X="6.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Entities\Ingredient\StockIngredient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RecipeManager.Domain.Entities.RecipeIngredient">
+    <Position X="3.75" Y="4.5" Width="1.5" />
+    <Members>
+      <Property Name="Recipe" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAABABgAAAAAAAAAACAAAAAAAAAAAAAAAAAiAAAAAA=</HashCode>
+      <FileName>Entities\Ingredient\RecipeIngredient.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Ingredient" />
+      <Property Name="Recipe" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RecipeManager.Domain.Entities.Ingredient">
+    <Position X="4.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAQAAAAAAAIAgAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Ingredient\Ingredient.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="StockIngredient" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RecipeManager.Domain.Entities.Recipe">
+    <Position X="2.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAQAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Recipe\Recipe.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="RecipeIngredients" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="RecipeManager.Domain.Entities.User">
+    <Position X="9.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEIAACAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAg=</HashCode>
+      <FileName>Entities\Users\User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Role" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RecipeManager.Domain.Entities.UserRole">
+    <Position X="12" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Users\UserRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
