@@ -15,6 +15,8 @@ namespace RecipeManager.Domain.Interfaces
 
         IRecipeRepository RecipeRepository();
 
+        IIngredientRepository IngredientRepository();
+
         IAsyncRepository<T> AsyncRepository<T>() where T : BaseEntity;
     }
 }

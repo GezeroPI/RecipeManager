@@ -1,4 +1,5 @@
-﻿using RecipeManager.Domain.Entities;
+﻿using AutoMapper;
+using RecipeManager.Domain.Entities;
 using RecipeManager.Domain.Interfaces;
 
 namespace RecipeManager.Api.Services
@@ -6,8 +7,12 @@ namespace RecipeManager.Api.Services
     public class RecipeService : BaseService
     {
         private IRecipeRepository _recipeRepository { get; set; }
-        public RecipeService(IUnitOfWork unitOfWork) : base(unitOfWork)
+
+        public readonly IMapper _mapper;
+
+        public RecipeService(IMapper mapper, IUnitOfWork unitOfWork) : base(unitOfWork)
         {
+            _mapper = mapper;
             _recipeRepository = UnitOfWork.RecipeRepository();
         }
 

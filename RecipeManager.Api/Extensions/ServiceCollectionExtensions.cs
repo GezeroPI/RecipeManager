@@ -38,13 +38,9 @@ namespace RecipeManager.Api.Extensions
         {
             return services
                 .AddScoped<UserService>()
-                .AddScoped<RecipeService>();
+                .AddScoped<RecipeService>()
+                .AddScoped<IngredientService>();
         }
 
-        public static IServiceCollection AddValidators(this IServiceCollection services
-           )
-        {
-            return services.AddTransient<IValidator<AddUserRequest>, AddUserRequestValidator>();
-        }
     }
 }

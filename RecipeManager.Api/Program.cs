@@ -6,6 +6,7 @@ using System.Configuration;
 using NLog;
 using NLog.Web;
 using FluentValidation.AspNetCore;
+using RecipeManager.Api.DTOs;
 
 var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 logger.Debug("init main");
@@ -16,8 +17,7 @@ try
     var builder = WebApplication.CreateBuilder(args);
     IConfiguration configuration = builder.Configuration;
     // Add services to the container.
-
-    builder.Services.AddControllers().AddFluentValidation();
+    builder.Services.AddControllers().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<AddUserRequestValidator>());
     builder.Logging.ClearProviders();
     builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
     builder.Host.UseNLog();
@@ -27,8 +27,7 @@ try
     builder.Services.AddDatabase(configuration)
                 .AddUnitOfWork()
                 .AddRepositories()
-                .AddBusinessServices()
-                .AddValidators();
+                .AddBusinessServices();
 
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();

@@ -34,6 +34,11 @@ namespace RecipeManager.Infrastructure
             return new RecipeRepository(_dbContext);
         }
 
+        public IIngredientRepository IngredientRepository()
+        {
+            return new IngredientRepository(_dbContext);
+        }
+
         public Task<int> SaveChangesAsync()
         {
             return _dbContext.SaveChangesAsync();
